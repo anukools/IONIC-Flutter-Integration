@@ -57,7 +57,7 @@ export class HomePage implements OnInit {
   async setupStatusBar() {
     try {
       await StatusBar.setOverlaysWebView({ overlay: false }); // ✅ Very important
-      await StatusBar.setBackgroundColor({ color: '#66000000' }); // optional: set toolbar blue background
+      await StatusBar.setBackgroundColor({ color: '#3880ff' }); // optional: set toolbar blue background
       // await StatusBar.setStyle({ style: Style.Light }); // optional: status bar text color light
     } catch (error) {
       console.error('StatusBar setup error:', error);
