@@ -18,11 +18,10 @@ This project demonstrates how to integrate a Flutter module within an Ionic appl
 │   ├── app/
 │   │   └── home/
 │   │       └── home.page.ts  # Ionic UI for Flutter interaction
-│   └── plugin/
-│       └── my-custom-bridge.ts  # TypeScript definitions
 ├── capacitor-bridge/         # Capacitor bridge plugin
 │   ├── src/
-│   │   └── index.ts         # Plugin interface
+│   │   ├── index.ts         # Plugin interface
+│   │   └── definitions.ts   # Type definitions
 │   └── android/
 │       └── src/
 │           └── main/
@@ -109,7 +108,7 @@ The integration uses a hybrid approach with the following components:
 1. **Launch Flutter from Ionic**:
    ```typescript
    // In Ionic component
-   import MyCustomBridge from '../plugin/my-custom-bridge';
+   import { MyCustomBridge } from 'capacitor-bridge';
 
    launchFlutter() {
      MyCustomBridge.showFlutterView({ message: 'Hello from Ionic!' });
@@ -138,9 +137,10 @@ The integration uses a hybrid approach with the following components:
 - Handles communication between Ionic and Flutter
 - Registers broadcast receivers for message passing
 
-### 2. MyCustomBridgePlugin
+### 2. Capacitor Bridge Plugin
 - Custom Capacitor plugin for native communication
 - Handles message passing between Ionic and native code
+- Located in `capacitor-bridge/src/index.ts`
 
 ### 3. Flutter Module
 - Contains Flutter UI and business logic
@@ -188,18 +188,18 @@ Feel free to submit issues and enhancement requests.
 
 This project is licensed under the MIT License.
 
-## Native Communication with CustomBridgePlugInPlugin
+## Native Communication with Capacitor Bridge
 
 ### Sending Messages to Native
 
 ```typescript
 // In Ionic component
-import { CustomBridgePlugInPlugin } from 'capacitor-bridge';
+import { MyCustomBridge } from 'capacitor-bridge';
 
 // Send message to native
 async function sendToNative() {
   try {
-    await CustomBridgePlugInPlugin.sendMessage({
+    await MyCustomBridge.sendMessage({
       message: 'Hello from Ionic to Native!'
     });
   } catch (error) {
@@ -212,10 +212,10 @@ async function sendToNative() {
 
 ```typescript
 // In Ionic component
-import { CustomBridgePlugInPlugin } from 'capacitor-bridge';
+import { MyCustomBridge } from 'capacitor-bridge';
 
 // Listen for native messages
-CustomBridgePlugInPlugin.addListener('onNativeMessage', (data: { message: string }) => {
+MyCustomBridge.addListener('onNativeMessage', (data: { message: string }) => {
   console.log('Received from Native:', data.message);
   // Handle the message
 });
@@ -254,7 +254,7 @@ The plugin supports the following message types:
 ```typescript
 // Error handling example
 try {
-    await CustomBridgePlugInPlugin.sendMessage({
+    await MyCustomBridge.sendMessage({
         message: 'Test message'
     });
 } catch (error) {
