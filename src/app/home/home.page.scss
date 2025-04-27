@@ -32,3 +32,47 @@
   align-items: center;
   height: 60vh; // Adjust as needed
 }
+
+ion-header,
+ion-toolbar,
+ion-title {
+  --background: #3880ff; /* Primary blue background */
+  --color: #ffffff;       /* White title text */
+  text-align: center;
+}
+
+ion-content {
+  --background: #f8f9fa; /* Light background for content */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+ion-grid, ion-row, ion-col {
+  height: auto;
+}
+
+.custom-card {
+  margin-bottom: 20px;
+}
+
+ion-card-title {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+ion-button {
+  font-size: 1rem;
+  margin-top: 16px;
+}
+
+ion-input {
+  font-size: 1rem;
+}

@@ -1,34 +1,55 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      IONIC-Native-Flutter
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content [fullscreen]="true" class="custom-content">
+<ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="8">
+        <ion-card class="custom-card">
+          <ion-card-header>
+            <ion-card-title>Send Message to Flutter</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item lines="full" class="custom-item">
+              <!-- <ion-label position="floating">Enter Message</ion-label> -->
+              <ion-input [(ngModel)]="messageToSend" placeholder="Type your message..."></ion-input>
+            </ion-item>
 
-  <div id="container">
-    <strong>Lets test IONIC-FLUTTER?</strong>
-    <p>
-      <ion-button (click)="launchFlutter()">Send Hi To Flutter</ion-button>
-    </p>
+            <ion-button expand="block" size="large" class="send-button" (click)="launchFlutter()">
+              🚀 Send To Flutter
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
 
-
-    <ion-card>
-      <ion-card-header>
-        Message From Flutter
-      </ion-card-header>
-      <ion-card-content>
-        <p>{{ flutterMessage }}</p>
-      </ion-card-content>
-    </ion-card>
-    
-  </div>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="8">
+        <ion-card class="custom-card">
+          <ion-card-header>
+            <ion-card-title>Message Received from Flutter</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-text color="primary">
+              <h3 *ngIf="flutterMessage; else noMessage">{{ flutterMessage }}</h3>
+              <ng-template #noMessage>
+                <p>No message yet</p>
+              </ng-template>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
