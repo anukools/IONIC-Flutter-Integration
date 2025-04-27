@@ -14,7 +14,21 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong>Lets test IONIC-FLUTTER?</strong>
+    <p>
+      <ion-button (click)="launchFlutter()">Send Hi To Flutter</ion-button>
+    </p>
+
+
+    <ion-card>
+      <ion-card-header>
+        Message From Flutter
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ flutterMessage }}</p>
+      </ion-card-content>
+    </ion-card>
+    
   </div>
+
 </ion-content>
