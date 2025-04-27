@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonCard, IonCardContent, IonCardHeader  } from '@ionic/angular/standalone';
 
-import MyCustomBridge from '../plugin/my-custom-bridge';
+// import MyCustomBridge from '../plugin/my-custom-bridge';
+import  MyCustomBridge   from 'capacitor-bridge'; // ✅ Import your bridge
 
 @Component({
   selector: 'app-home',
